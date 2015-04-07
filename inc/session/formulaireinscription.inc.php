@@ -28,7 +28,6 @@ require_once ROOT."\inc\main\connexionbdd.inc.php";
     if("submit" == "D&eacute;j&agrave; inscrit ?"){
         require_once ROOT."\inc\session\formulaireconnexion.inc.php";
     }
-
 ?>
 <!-- Le formulaire d'inscription envoie un mail pour securisé l'acces -->
   <form method="post" action="<?php echo $_SESSION['request_url']; ?>">
@@ -99,7 +98,7 @@ require_once ROOT."\inc\main\connexionbdd.inc.php";
    </table>
   </form>
 
-  <form method="post" action="http://localhost/apply-templates/inc/session/formulaireconnexion.inc.php">
+  <form method="post" action="inc/session/formulaireconnexion.inc.php">
    <table border="0" width="400" align="center">
         <tr>
             <td colspan="2">

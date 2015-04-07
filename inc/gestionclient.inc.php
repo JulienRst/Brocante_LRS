@@ -1,5 +1,7 @@
 <?php
 
+$GLOBALS['pdo'] = $bdd; //A changer c'est juste pour tester //JULIEN
+
 function estConnecte()
 {
 	return isset($_SESSION['user']);
@@ -19,6 +21,7 @@ function connexionCheck()
 
 function connexionclient()
 {
+  $bdd = $GLOBALS['pdo']; // A changer c'est juste pour tester //JULIEN
    
   $loginOK = false;  // cf Astuce
 
@@ -30,28 +33,37 @@ function connexionclient()
     
 /* *** COMMENTAIRE ***
  * MOI JAI LIMPRESSION QUE MON UPDATE NE FONCTIONNE PAS ET LA CONNEXION BDD EST PAS ETABLIE */
+    $login = $_POST['login'];
+    $password = $_POST['mdp'];
+
+    echo('password user : '.$password);
+
 
     try{
         //Je précise que $bdd est un objet de classe PDO qui fonctionne pour d'autre requête.
-        $req = $bdd->prepare("UPDATE login, age, sexe, commentaire, telephone VALUES (:login,:age,:sexe,:commentaire,:telephone) FROM 2015eshop_utilisateur WHERE id_user = :id_user");
+        /*$req = $bdd->prepare("UPDATE login, age, sexe, commentaire, telephone VALUES (:login,:age,:sexe,:commentaire,:telephone) FROM 2015eshop_utilisateur WHERE id_user = :id_user");
         $req->bindParam(':login',$login);
         $req->bindParam(':age',$age);
         $req->bindParam(':sexe',$sexe);
         $req->bindParam(':commentaire',$commentaire);
         $req->bindParam(':telephone',$telephone);
-        $req->bindParam(':id_user',$id_user);
+        $req->bindParam(':id_user',$id_user);*/
+
+        $req = $bdd->prepare("SELECT * FROM 2015eshop_utilisateur WHERE login = :login");
+
+        $req->bindParam(':login',$login);
 
         $req->execute();
     }
     catch (Exception $e){
         echo $e->getMessage();   
-    }  
+    }
 
-
-
+    echo('Rowcount : '.$req->rowcount().'<br><br>');
     // On vérifie que l'utilisateur existe bien
-    if (mysql_num_rows($req) > 0) {
-       $data = mysql_fetch_assoc($req);
+    if ($req->rowcount() == 1) {
+       $data = $req->fetch(PDO::FETCH_ASSOC);
+       echo('password bdd :'.$data['mdp']);
       // On vérifie que son mot de passe est correct
       if ($password == $data['mdp']) {
         $loginOK = true;
@@ -67,8 +79,10 @@ function connexionclient()
 
 
   // Si le login a été validé on met les données en sessions
+  echo('test');
   if ($loginOK) 
   {
+    echo('YEAH !');
     $_SESSION['user'] = array();
     $_SESSION['user']['login'] = $data['login'];
     $_SESSION['user']['age'] = $data['age'];

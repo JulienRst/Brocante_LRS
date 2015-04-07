@@ -1,8 +1,12 @@
 <?php
+
+require_once('../../getRoot.php');
+session_start();
+
 /*require_once permet d'appeller seulement une fois les fichiers*/
-require_once ROOT."\apply-templates\inc\main\autoload.inc.php";
+require_once ROOT."\inc\main\autoload.inc.php";
 // Le chargement du header XHTML peut aussi être dans une classe vue en php.
-require_once ROOT."\apply-templates\inc\main\connexionbdd.inc.php";
+require_once ROOT."\inc\main\connexionbdd.inc.php";
 ?>
 
   <form method="post" action="<?php echo $_SESSION['request_url']; ?>">
@@ -29,5 +33,5 @@ require_once ROOT."\apply-templates\inc\main\connexionbdd.inc.php";
 
 <?php
 // Ne pas oublier de fermer proprement la page html.
-require_once ROOT.'\apply-templates\inc\footer.inc.php';
+require_once ROOT.'\inc\footer.inc.php';
 ?>
