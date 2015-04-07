@@ -1,6 +1,6 @@
 <?
 // Le chargement du header XHTML peut aussi être dans une classe vue en php.
-require_once ROOT."\\inc\main\connexionbdd.inc.php";
+require_once ROOT."\apply-templates\inc\main\connexionbdd.inc.php";
 /*
   mysql_connect("localhost", "info3000", "MonMotDePasse");
   mysql_select_db("info3000");*/

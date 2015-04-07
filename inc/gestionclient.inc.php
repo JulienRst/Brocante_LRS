@@ -19,24 +19,41 @@ function connexionCheck()
 
 function connexionclient()
 {
+   
   $loginOK = false;  // cf Astuce
 
   /* On n'effectue les traitements à la condition que 
    les informations aient été effectivement postées*/
-  if ( isset($_POST['login']) && (!empty($_POST['login'])) && isset($_POST['mdp']) && (!empty($_POST['mdp'])) ) 
-  {
+  if ( isset($_POST['login']) && (!empty($_POST['login'])) && isset($_POST['mdp']) && (!empty($_POST['mdp'])) ) {
     $login = $_POST['login'];
     // On va chercher le mot de passe afférent à ce login
-    $sql = "SELECT login, age, sexe, telephone FROM 2015eshop_utilisateur WHERE login = '".addslashes($login)."'";
-    $req = mysql_query($sql) or die('Erreur SQL : <br />'.$sql);/*changer obsolete recuperer code lisa*/
     
+/* *** COMMENTAIRE ***
+ * MOI JAI LIMPRESSION QUE MON UPDATE NE FONCTIONNE PAS ET LA CONNEXION BDD EST PAS ETABLIE */
+
+    try{
+        //Je précise que $bdd est un objet de classe PDO qui fonctionne pour d'autre requête.
+        $req = $bdd->prepare("UPDATE login, age, sexe, commentaire, telephone VALUES (:login,:age,:sexe,:commentaire,:telephone) FROM 2015eshop_utilisateur WHERE id_user = :id_user");
+        $req->bindParam(':login',$login);
+        $req->bindParam(':age',$age);
+        $req->bindParam(':sexe',$sexe);
+        $req->bindParam(':commentaire',$commentaire);
+        $req->bindParam(':telephone',$telephone);
+        $req->bindParam(':id_user',$id_user);
+
+        $req->execute();
+    }
+    catch (Exception $e){
+        echo $e->getMessage();   
+    }  
+
+
+
     // On vérifie que l'utilisateur existe bien
-    if (mysql_num_rows($req) > 0) 
-    {
+    if (mysql_num_rows($req) > 0) {
        $data = mysql_fetch_assoc($req);
       // On vérifie que son mot de passe est correct
-      if ($password == $data['mdp']) 
-      {
+      if ($password == $data['mdp']) {
         $loginOK = true;
       }
     }
