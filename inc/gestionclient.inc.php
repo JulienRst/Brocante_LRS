@@ -1,90 +1,5 @@
 <?php
 
-/*rajouter 
-
-import GestionClient.php qui verirife la connexion et connecté
-Si pas connecté
-	S'il existe
-		SE CONNECTER
-		--> require form connexion
-Si connecté avec usser et mdp
-	lancer la page d'accueil
-
-Sinon
-	S'INSCRIRE
-	-->require formulaire
-
-
-exit();
-
-
-
-
-if(!verif){ //fonction verif
-if (isset($_SESSION('user')){ //fonction connexion
-return true;
-}
-else
-{ 
-	return false;
-}
-
-if (verif) //fonction verif
-$_SESSION['user']['login']= .... ;
-
-else
-require formulaire
-exit();
-*/
-/*require_once ROOT."inc/connexionclient.inc.php";*/
-
-
-/* *****
-
-	CODE
-
-
- * ***** */
-
-
-/*require ROOT.'\inc\session\verif_connexionclient.inc.php';
-require ROOT.'\inc\session\verif_inscriptionclient.inc.php';*/
-
-
-/*variable des fonctions incluse dans les classes precedentes*/
-/*if(!isset($_SESSION['user']))
-{
-	connexionclient();
-}
-
-$ins = inscriptionclient();*/
-
-/* S'il n'y a pas de connexionclient,
- * on propose au client de se connecter */
-/*if(!$ins)
-{
-	require_once ROOT.'\inc\session\formulaireinscription.inc.php';
-	exit();
-}
-elseif($ins)
-{
-	if(!$co)
-	{
-		require_once ROOT.'\site_v6\inc\session\formulaireconnexion.inc.php';
-		exit();
-		connexionclient();
-	}
-	else
-	{
-		require_once ROOT.'\site_v6\inc\main\header.inc.php';
-		require_once ROOT.'\site_v6\inc\main\menu.inc.php';*/
-		/*mettre une variable pour recuperer la page où le client était  : $_SESSION ['page'] */
-	/*}
-}*/
-/*afficher le formulaire*/
-
-
-
 function estConnecte()
 {
 	return isset($_SESSION['user']);
@@ -110,6 +25,7 @@ function connexionclient()
    les informations aient été effectivement postées*/
   if ( isset($_POST['login']) && (!empty($_POST['login'])) && isset($_POST['mdp']) && (!empty($_POST['mdp'])) ) 
   {
+    $login = $_POST['login'];
     // On va chercher le mot de passe afférent à ce login
     $sql = "SELECT login, age, sexe, telephone FROM 2015eshop_utilisateur WHERE login = '".addslashes($login)."'";
     $req = mysql_query($sql) or die('Erreur SQL : <br />'.$sql);/*changer obsolete recuperer code lisa*/

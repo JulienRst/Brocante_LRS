@@ -1,2 +1,5 @@
+<<<<<<< HEAD
 ErrorDocument 404 http://localhost/Broquante_LRS/error/error404.error.php
 ErrorDocument 403 http://localhost/Broquante_LRS/error/error403.error.php
+=======
+>>>>>>> origin/master
