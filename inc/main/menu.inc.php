@@ -9,10 +9,10 @@ if (defined("HTML"))
 								<a title="accueil" href="#">Brocante</a>
 							</li>
 							<li>
-								<a title="enchere" href="http://localhost/site_v6/enchere.php">Encheres</a>
+								<a title="enchere" href="http://localhost//enchere.php">Encheres</a>
 							</li>
 							<li>
-								<a title="profil" href="http://localhost/site_v6/profil.php">Armoire</a>
+								<a title="profil" href="http://localhost//profil.php">Armoire</a>
 							</li>
 						</ul>
 				</div>

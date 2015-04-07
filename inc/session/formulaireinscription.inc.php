@@ -1,4 +1,7 @@
 <?php
+
+
+
 /*require_once permet d'appeller seulement une fois les fichiers*/
 require_once ROOT."\inc\main\autoload.inc.php";
 // Le chargement du header XHTML peut aussi être dans une classe vue en php.
@@ -99,7 +102,7 @@ require_once ROOT."\inc\main\connexionbdd.inc.php";
    </table>
   </form>
 
-  <form method="post" action="http://localhost/site_v6/inc/session/formulaireconnexion.inc.php">
+  <form method="post" action="inc/session/formulaireconnexion.inc.php">
    <table border="0" width="400" align="center">
         <tr>
             <td colspan="2">

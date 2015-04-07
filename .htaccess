@@ -1,2 +1,0 @@
-ErrorDocument 404 http://localhost/site_v6/error/error404.error.php
-ErrorDocument 403 http://localhost/site_v6/error/error403.error.php
