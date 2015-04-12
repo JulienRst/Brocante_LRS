@@ -4,10 +4,13 @@
 			<a title="accueil" href="#">Brocante</a>
 		</li>
 		<li>
-			<a title="enchere" href="<?php echo(ROOT."\controller\viewEnchere.php");?>">Encheres</a>
+			<a title="enchere" href="viewEnchere.php">Encheres</a>
 		</li>
 		<li>
-			<a title="profil" href="<?php echo(ROOT."\controller\viewProfil.php");?>">Armoire</a>
+			<a title="profil" href="viewProfil.php">Armoire</a>
+		</li>
+		<li>
+			<a title="deconnect" href="disconnectUser.php">Se Déconnecter</a>
 		</li>
 	</ul>
 </div>
