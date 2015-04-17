@@ -14,7 +14,7 @@
 		<?php require_once(ROOT."\\view\\nav.php"); 
 		
 		/*on gere l'affichage des pages ici*/
-		/* **** BROCANTE **** */
+		/* **** VENTE **** */
 		
 		require_once(ROOT."\\view\\footer.php"); ?>
 	</body>
