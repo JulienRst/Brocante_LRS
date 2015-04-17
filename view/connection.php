@@ -7,7 +7,8 @@
 	    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
 	</head>
 	<body>
-		<div class="container">
+		<div class="container">			
+			<h3 class="text-muted">Connectez-vous</h3>
 			<form class="form-horizontal" method=post action="traitementConnection.php">
 				<div class="form-group">
 					<label class="control-label" for="login">Votre Login</label> <!-- le label se placera devant l'input -->
