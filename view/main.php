@@ -17,5 +17,11 @@
 		/* **** BROCANTE **** */
 		
 		require_once(ROOT."\\view\\footer.php"); ?>
+<<<<<<< HEAD
+=======
+		<script type="text/javascript" title="JQUERY" src="../assets/js/jquery.js"></script>
+		<script type="text/javascript" title="BOOTSTRAP" src="../assets/js/bootstrap.js"></script>
+		<script type="text/javascript" title="MAIN" src="../assets/js/main.js"></script>
+>>>>>>> origin/master
 	</body>
 </html>
