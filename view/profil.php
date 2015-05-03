@@ -24,27 +24,33 @@
 		    require_once"../model/database.php";
 		    $database = new database();
 		    exit(); -->
-		<bouton><a href="vente.php">Vendre un autre objet</a></bouton>
+		<button><a href="vente.php">Vendre un autre objet</a></button>
 
 	
 
 	<!--  aller chercher le tableau du controleur de la vue des objets->
 		<!-- **** OBJETS ****--> 
 
- 	<div class="container"><h4 class="text-muted">Mon armoire</h4></div>
+ 		<div class="container"><h4 class="text-muted">Mon armoire</h4>
 	
-	<?php		
-		/*foreach ($array as $objet) {
-			echo($objet["nom"].$objet["description"]);
-		}*/
-		
-		require_once(ROOT."\\view\\footer.php"); ?>
-<<<<<<< HEAD
+		<?php	
+			// $tab[nom] = value --> au foreach cela donne 	$key = $nom et $value = value
+			foreach ($tab_categorie as $key => $categorie) {
+				echo($key);
+				echo("<br>");
+				if($categorie != NULL){
+					foreach($categorie as $product){
+						$product->printObject();
+					}
+				}
+			}
+		?>
 
-=======
+		<?php require_once(ROOT."\\view\\footer.php");?>
+		</div>
+		
 		<script type="text/javascript" title="JQUERY" src="../assets/js/jquery.js"></script>
 		<script type="text/javascript" title="BOOTSTRAP" src="../assets/js/bootstrap.js"></script>
 		<script type="text/javascript" title="MAIN" src="../assets/js/main.js"></script>
->>>>>>> origin/master
 	</body>
 </html>

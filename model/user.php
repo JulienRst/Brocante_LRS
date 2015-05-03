@@ -80,7 +80,7 @@
 
 		public function getUserById($id){
 			//bind Param = lier paramètre, il faut le faire après la requête préparée car bindParam est une méthode de cette requête
-			$req = $this->pdo->prepare("SELECT login, age, sexe, telephone, commentaire FROM 2015eshop_utilisateur WHERE id_user = :id");
+			$req = $this->pdo->prepare("SELECT id_user, login, age, sexe, telephone, commentaire FROM 2015eshop_utilisateur WHERE id_user = :id");
 			$req->bindParam(':id',$id);
 
 			try {
@@ -95,25 +95,4 @@
 			}
 		}
 	}
-
-
-  // Si le login a été validé on met les données en sessions
- /* echo('test');
-  if ($loginOK) 
-  {
-    echo('YEAH !');
-    $_SESSION['user'] = array();
-    $_SESSION['user']['login'] = $data['login'];
-    $_SESSION['user']['age'] = $data['age'];
-    $_SESSION['user']['sexe'] = $data['sexe'];
-    $_SESSION['user']['telephone'] = $data['telephone'];
-    return true;
-  }
-  else 
-  {
-    return false;
-  }
-  */
-
-
 ?>

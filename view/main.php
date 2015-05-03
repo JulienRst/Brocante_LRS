@@ -11,17 +11,17 @@
 		<link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css"/>
 	</head>
 	<body>
-		<?php require_once(ROOT."\\view\\nav.php"); 
-		
-		/*on gere l'affichage des pages ici*/
-		/* **** BROCANTE **** */
-		
-		require_once(ROOT."\\view\\footer.php"); ?>
-<<<<<<< HEAD
-=======
+		<?php 
+			require_once(ROOT."\\view\\nav.php"); 
+			
+			/*on gere l'affichage des pages ici*/
+			/* **** BROCANTE **** */
+			
+
+			require_once(ROOT."\\view\\footer.php"); 
+		?>
 		<script type="text/javascript" title="JQUERY" src="../assets/js/jquery.js"></script>
 		<script type="text/javascript" title="BOOTSTRAP" src="../assets/js/bootstrap.js"></script>
 		<script type="text/javascript" title="MAIN" src="../assets/js/main.js"></script>
->>>>>>> origin/master
 	</body>
 </html>

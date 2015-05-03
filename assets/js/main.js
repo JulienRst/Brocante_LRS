@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	var url = window.location.href;
-	var valuePossible = ["Main","Enchere","sProfil"];
+	var valuePossible = ["Main","Enchere","Profil"];
 	for(var i in valuePossible){
 		if(url.indexOf(valuePossible[i]) != -1){
 			$('.nav-pills li').removeClass('active');

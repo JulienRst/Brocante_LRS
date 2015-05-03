@@ -6,6 +6,3 @@
 						<li role="presentation"><a title="deconnect" href="disconnectUser.php">Se Déconnecter</a></li>
 					</ul>
 				</div>
-
-
-<!-- Rajouter les fonctions "onclick" pour que le menu fonctionne -->

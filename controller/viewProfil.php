@@ -3,9 +3,13 @@
     require_once("checkUser.php");
     require_once("getRoot.php");
     
-    //ON VERIFIE SI CA FONCTIONNE : Voir le contenu du $_SESSION (et donc checker que la connexion fonctionne bien)
-    /*session_start();
-    print_r($_SESSION);*/
+    require_once(ROOT."model/modelProfil.php");
+
+    $idUser = $_SESSION["user"]["id_user"];
+
+    $modelProfil = new gestionProfil();
+
+    $tab_categorie = $modelProfil->getAllObjectFor($idUser);
 
     /*On affiche la page*/
     require_once ROOT."\\view\profil.php";
