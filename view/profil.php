@@ -18,17 +18,9 @@
 
 		<div class="container"><h3 class="text-muted">Profil</h3></div>
 
+		<?php echo('Prenom :'.$user['login'].'<br/>Age : '.$user['age'].' ans<br/> Comentaire : '.$user['commentaire'].'<br/>'); ?>	
 
-		
-		    <!--header('Content-Type: text/html; charset=utf-8');
-		    require_once"../model/database.php";
-		    $database = new database();
-		    exit(); -->
-		<button><a href="vente.php">Vendre un autre objet</a></button>
-
-	
-
-	<!--  aller chercher le tableau du controleur de la vue des objets->
+	<!--  aller chercher le tableau du controleur de la vue des objets-->
 		<!-- **** OBJETS ****--> 
 
  		<div class="container"><h4 class="text-muted">Mon armoire</h4>

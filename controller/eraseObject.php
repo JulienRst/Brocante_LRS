@@ -10,7 +10,7 @@
 
 	$gestionProfil = new gestionProfil();
 
-	$obj_to_erase = $gestionProfil->getObjectById($idObj,$idUser);
+	$obj_to_erase = $gestionProfil->getObjectById($idObj);
 
 	$obj_to_erase->eraseObject($idObj,$idUser);
 

@@ -63,9 +63,23 @@
 				<img src='../assets/img/objets/".$this->url_img."' alt='".$this->nom_obj."' width='130px' height='auto'/><br/>
 				<b>".$this->nom_obj."</b><br/>
 				".$this->prix." €<br/>
-				<a href='[A REMPLACER DE QUAND ON AURA FAIT LA PAGE OBJET !!]?id=".$this->id_obj."'>Voir plus</a><br/><br/>
+				<a href='viewObjet.php?idObj=".$this->id_obj."'>Voir plus</a><br/><br/>
 				<a href='eraseObject.php?idObj=".$this->id_obj."'>Supprimer l'objet de l'armoire</a><br/><br/>
 
+				</div>
+			");
+		}
+
+		public function printBigObject(){
+			echo ("
+				<div>
+				<img src='../assets/img/objets/".$this->url_img."' alt='".$this->nom_obj."' width='250px' height='auto'/><br/>
+				<b>".$this->nom_obj."</b><br/>
+				<a href='[A REMPLACER DE QUAND ON AURA FAIT LA PAGE PANIER !!]?id=".$this->id_obj."'>* AJOUTER au panier *</a><br/><br/>
+
+				".$this->prix." €<br/>
+				Description de l'objet :".$this->description_obj."<br/>
+				Date de la mise en vente de l'objet :".$this->date_enchere."<br/>
 				</div>
 			");
 		}
@@ -79,9 +93,31 @@
 			try {
 				$stmt->execute();
 			} catch(Exception $e){
-				echo $e->getMessage();
+				echo $e->getLine().' : '.$e->getMessage();
 			}
 			//Supprimer l'objet des paniers et envoyer un mail au utilisateur qui avait cet objet dans leur panier (du travail en plus : CHOUETTE !)
+		}
+
+		public function vendreObjet(){
+			$stmt = $this->pdo->prepare("INSERT INTO 2015eshop_objet(nom_obj,id_categorie,url_img,id_user,id_acheteur,nbr_obj,description_obj,prix,date_enchere,date_publication,date_vendu,id_commande) VALUES (:nom_obj,:id_categorie,:url_img,:id_user,:id_acheteur,:nbr_obj,:description_obj,:prix,:date_enchere,:date_publication,:date_vendu,:id_commande)");
+			$stmt->bindParam(':nom_obj',$this->nom_obj);
+			$stmt->bindParam(':id_categorie',$this->id_categorie);
+			$stmt->bindParam(':url_img',$this->url_img);
+			$stmt->bindParam(':id_user',$this->id_user);
+			$stmt->bindParam(':id_acheteur',$this->id_acheteur);
+			$stmt->bindParam(':nbr_obj',$this->nbr_obj);
+			$stmt->bindParam(':description_obj',$this->description_obj);
+			$stmt->bindParam(':prix',$this->prix);
+			$stmt->bindParam(':date_enchere',$this->date_enchere);
+			$stmt->bindParam(':date_publication',$this->date_publication);
+			$stmt->bindParam(':date_vendu',$this->date_vendu);
+			$stmt->bindParam(':id_commande',$this->id_commande);
+
+			try {
+				$stmt->execute();
+			} catch(Exception $e){
+				echo $e->getLine().' : '.$e->getMessage();
+			}
 		}
 	}
 ?>

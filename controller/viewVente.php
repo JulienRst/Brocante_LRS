@@ -8,5 +8,5 @@
 	print_r($_SESSION);*/
 
 	/*On affiche la page*/
-	require_once ROOT."\\view\\enchere.php";
+	require_once ROOT."\\view\\vente.php";
 ?>
